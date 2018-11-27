@@ -17,4 +17,4 @@ Follow the below instructions to build and run Neksus.
         scons build/ARM/gem5.debug or scons build/ARM/gem5.opt
 
 ## Run
-        build/ARM/gem5.debug -d results/test configs/example/se.py -n 1 --cpu-type=timing --caches --l2cache --num-dirs=1 --gemdroid --cpu_trace1 traces/your_trace.trace --num_cpu_traces=1 --device_config=ini/your_device_config.ini --system_config=your_system_config.ini -c tests/test-progs/hello/bin/arm/linux/hello
+	build/ARM/gem5.debug -d results/test configs/example/se.py -n 1 --cpu-type=timing --caches --l2cache --num-dirs=1 --gemdroid --governor 0 --core_freq 1800 --mem_freq 2000 --ip_freq 500 --cpu_trace1 traces/user_input_trace_filename --num_cpu_traces=1 -c tests/test-progs/hello/bin/arm/linux/hello --cuttoffTime user_input_cuttofftime
