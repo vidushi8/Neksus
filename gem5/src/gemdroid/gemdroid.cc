@@ -1030,75 +1030,13 @@ void GemDroid::tick()
 
     int ready = 0;
     // Added vidushi
-    // Uncomment for stopping simulation at cuttoff deadline 
-    //if(ticks > cuttoffTime*MILLISEC) ready = 1;//  orig 10ms for youtube
-   
-    if (cuttoffTime == 1) {
-    switch (app_id[0]) {
-        case APP_ID_AUDIORECORD:
-        if (gemdroid_ip_mmc_out[1].m_frameNum > 100)
-                ready = 1;
-        break;
-        case APP_ID_AUDIOPLAY:
-        if (gemdroid_ip_snd[0].m_frameNum > 13)
-                ready = 1;
-        break;
-        case APP_ID_GALLERY:
-        if (gemdroid_ip_dc[0].m_frameNum > 3)
-                ready = 1;
-        break;
-        case APP_ID_PHOTOCAPTURE:
-        if (gemdroid_ip_dc[0].m_frameNum > 3 )
-                ready = 1;
-        break;
-        case APP_ID_VIDRECORD:
-        if (gemdroid_ip_mmc_out[0].m_frameNum > 3)
-                ready = 1;
-        break;
-        case APP_ID_YOUTUBE:
-        if (gemdroid_ip_dc[0].m_frameNum > 3)
-                ready = 1;
-        break;
-        case APP_ID_SKYPE:
-        if ((gemdroid_ip_dc[0].end_cycle).size() == 3 && (gemdroid_ip_snd[0].end_cycle).size() == 3 && (gemdroid_ip_ve[0].end_cycle).size() == 3 && (gemdroid_ip_ae[0].end_cycle).size() == 3)
-                ready = 1;
-        break;
-        default:
-        break;
-    }
-    } else if (cuttoffTime == 2){
-	switch (app_id[0]) {
-	case APP_ID_AUDIORECORD:
-	     exit(1);
-	break;
-	case APP_ID_AUDIOPLAY:
-             exit(1);
-        break;
-        case APP_ID_GALLERY:
-             exit(1);
-        break;
-	case APP_ID_PHOTOCAPTURE:
-        if ( gemdroid_ip_mmc_out[0].m_frameNum > 3)
-	        ready = 1;
-        break;
-        case APP_ID_VIDRECORD:
-        if (gemdroid_ip_mmc_out[1].m_frameNum > 100)
-	        ready = 1;
-        break;
-        case APP_ID_YOUTUBE:
-        if (gemdroid_ip_snd[0].m_frameNum  > 100)
-	        ready = 1;
-        break;
-	case APP_ID_SKYPE:
-        if ((gemdroid_ip_dc[0].end_cycle).size() == 3 && (gemdroid_ip_snd[0].end_cycle).size() == 3 && (gemdroid_ip_ve[0].end_cycle).size() == 3 && (gemdroid_ip_ae[0].end_cycle).size() == 3)
-                ready = 1;
-        break;
-        default:
-        break;
-    }
-    } else {
+    // Uncomment for stopping simulation at cuttoff deadline. Used for performance results
+    if(ticks > cuttoffTime*MILLISEC) ready = 1;//  orig 10ms for youtube
+  
+
+    //uncomment for stopping simulation for equal work done. Used for energy results 
     // Added vidushi for equal workload case
-    switch (app_id[0]) {
+   /* switch (app_id[0]) {
         case APP_ID_AUDIORECORD:
         if ((gemdroid_ip_mmc_out[1].end_cycle).size() == 3)
                 ready = 1;
@@ -1129,8 +1067,7 @@ void GemDroid::tick()
 	break;
         default:
         break;
-    }
-    }
+    }*/
     if (ready)
     {
 	exitfunction();
