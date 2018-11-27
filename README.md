@@ -1,4 +1,7 @@
 # Neksus
+Neksus is a full system simulation framework for System-in-Package (SiP) and System-on-Chip (SoC) applications. We integrate the IP definations given by GemDroid (https://github.com/gemdroid/GemDroid), DRAMSIM2 as memory module, and popular network simulator Booksim for a close loop simulation. It is based out of gem5 framework. Booksim has been configured for an optimized SiP interconnect. It supports common audio-video mobile applications like Youtube, Skype, etc. Application traces are collected from android emulator (https://github.com/huz123/GemDroid_QEMU).
+
+Follow the below instructions to build and run Neksus.
 ## Build
         git clone https://github.com/gemdroid/GemDroid.git
         cd GemDroid/
