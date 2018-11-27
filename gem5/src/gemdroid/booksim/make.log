@@ -1,0 +1,1 @@
+g++ -Wall -I. -Iarbiters -Iallocators -Irouters -Inetworks  -O3 -g -MMD -c routers/iq_router.cpp -o routers/iq_router.o
