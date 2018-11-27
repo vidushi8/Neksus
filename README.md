@@ -19,5 +19,5 @@ Follow the below instructions to build and run Neksus.
 ## Run
 	build/ARM/gem5.debug -d results/test configs/example/se.py -n 1 --cpu-type=timing --caches --l2cache --num-dirs=1 --gemdroid --governor 0 --core_freq 1800 --mem_freq 2000 --ip_freq 500 --cpu_trace1 traces/user_input_trace_filename --num_cpu_traces=1 -c tests/test-progs/hello/bin/arm/linux/hello --cuttoffTime user_input_cuttofftime
 
-Contact
+# Contact
 Questions and comments can be directed to vidushi@umich.edu
